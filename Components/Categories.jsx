@@ -31,7 +31,7 @@ export default function Categories({ setCategory }) {
       </button>
       {categories.map((category) => {
         return (
-          <button onClick={handleClick} className="category-btn">
+          <button key={category.category_name} onClick={handleClick} className="category-btn">
             {category.category_name}
           </button>
         );
