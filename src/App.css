@@ -1,0 +1,59 @@
+body {
+  overflow-x: hidden;
+  padding-left: 30px;
+}
+.header {
+  font-size: 4em;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.NC {
+  color: red;
+}
+.btn {
+  position: absolute;
+  top: 30em;
+}
+
+.category-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.sell-btn {
+  width: 8em;
+  height: 3em;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(107, 227, 111);
+}
+
+.category-btn {
+  width: 7em;
+  height: 3em;
+  border: none;
+  border-radius: 5px;
+}
+
+.category-btn:hover {
+  background-color: rgb(100, 100, 243);
+  color: white;
+}
+.category-btn:focus {
+  background-color: rgb(255, 0, 0);
+  color: white;
+}
+
+.formControl-0-2-23 {
+  width: 25% !important;
+}
+
+.description-field {
+  height: 40% !important;
+}
