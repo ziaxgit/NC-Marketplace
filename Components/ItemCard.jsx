@@ -1,16 +1,13 @@
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-
 export default function ItemCard({ item }) {
   return (
-    <Card style={{ width: "20em", height: "34em" }}>
-      <Card.Img variant="top" src={item.img_url} />
-      <Card.Body>
-        <Card.Title>{item.item_name}</Card.Title>
-        <Card.Text>{item.description}</Card.Text>
-        <Card.Text>£{item.price}</Card.Text>
-        <Button variant="primary">Order Now</Button>
-      </Card.Body>
-    </Card>
+    <div className="item-card-extra-height">
+      <div className="item-card" xs={6} md={6} lg={6}>
+        <img src={item.img_url} alt="" />
+        <header id="item-name">{item.item_name}</header>
+        <p className="item-description">{item.description}</p>
+        <p className="item-price">£{item.price}</p>
+        <button>Order Now</button>
+      </div>
+    </div>
   );
 }

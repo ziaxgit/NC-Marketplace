@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import fetchItems from "../utils/fetchItems";
 import ItemCard from "./ItemCard";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
 
 export default function ItemsList({ category }) {
   const [items, setItems] = useState([]);
@@ -13,22 +11,18 @@ export default function ItemsList({ category }) {
   }, []);
 
   return category ? (
-    <Row xs={2} md={5} className="g-4">
-      {items.map((item, idx) => {
+    <section className="item-list-container">
+      {items.map((item) => {
         return item.category_name === category ? (
-          <Col key={idx}>
-            <ItemCard item={item} />
-          </Col>
+          <ItemCard item={item} />
         ) : null;
       })}
-    </Row>
+    </section>
   ) : (
-    <Row xs={2} md={5} className="g-4">
-      {items.map((item, idx) => (
-        <Col key={idx}>
-          <ItemCard item={item} />
-        </Col>
-      ))}
-    </Row>
+    <section className="item-list-container">
+      {items.map((item) => {
+        return <ItemCard item={item} />;
+      })}
+    </section>
   );
 }
