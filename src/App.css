@@ -1,6 +1,6 @@
 body {
-  overflow-x: hidden;
-  padding-left: 30px;
+  /* overflow-x: hidden; */
+  /* padding-left: 30px; */
 }
 .header {
   font-size: 4em;
@@ -50,10 +50,15 @@ body {
   color: white;
 }
 
-.formControl-0-2-23 {
-  width: 25% !important;
+.form-section {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.description-field {
-  height: 40% !important;
+#root > form > div.formControl-0-2-25.rfc-form-control.image-upload > div {
+  max-width: 100%;
+  text-align: center;
+  background-color: #f3f3f2f3;
 }

@@ -33,15 +33,21 @@ export default function SellItem() {
     postItem(itemInfo);
   }
   return (
-    <FormThemeProvider theme={{ sizes: { inputWidth: "25%" } }}>
-      <h2>Sell, sell, sell!</h2>
-      <button onClick={backToBuyClick}>Back to shopping</button>
+    <FormThemeProvider
+      theme={{
+        sizes: { inputWidth: "30em", inputGutterBottom: 10 },
+        typography: {
+          labelFontSize: 20,
+        },
+      }}
+    >
       <Form
+        className="form-section"
         fields={["title", "description", "category", "price", "image"]}
         mandatory={["title", "price", "image"]}
       >
+        <h2>Sell your item 🤑</h2>
         <Input
-          className=""
           name="title"
           label="Item title"
           placeholder="Item Name"
@@ -71,9 +77,16 @@ export default function SellItem() {
           placeholder="9999"
           suffix="pence (GBP)"
         />
-        <ImageUpload label="Image upload" name="image" placeholder="" />
-        <SubmitButton onClick={handleSubmit}>Save</SubmitButton>
+        <ImageUpload
+          className="image-upload"
+          label="Image upload"
+          name="image"
+          placeholder=""
+        />
+        <SubmitButton onClick={handleSubmit}>List Item</SubmitButton>
       </Form>
+      <br />
+      <button onClick={backToBuyClick}>Back to shopping</button>
     </FormThemeProvider>
   );
 }
