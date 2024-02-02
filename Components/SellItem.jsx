@@ -7,7 +7,6 @@ import Form, {
   SubmitButton,
   Select,
   TextArea,
-  ImageUpload,
 } from "react-form-component";
 import postItem from "../utils/postItem";
 import ItemCard from "./ItemCard";
@@ -48,7 +47,6 @@ export default function SellItem() {
     postItem(itemInfo)
       .then((data) => {
         setIsSuccess(true);
-        console.log(data);
         setListedItem({ data });
       })
       .catch((err) => {
@@ -97,14 +95,12 @@ export default function SellItem() {
           label="Item title"
           placeholder="Item Name"
           value={title}
-          onChange={handleChange}
         />
         <TextArea
           name="description"
           label="Item Description"
           placeholder="Describe your item"
           value={description}
-          onChange={handleChange}
         />
         <Select
           name="category"
@@ -115,7 +111,6 @@ export default function SellItem() {
             { label: "Clothing", value: "Clothing" },
           ]}
           value={category}
-          onChange={handleChange}
         />
         <Input
           name="price"
@@ -124,22 +119,13 @@ export default function SellItem() {
           placeholder="9999"
           suffix="pence (GBP)"
           value={price}
-          onChange={handleChange}
         />
-        {/* <ImageUpload
-          label="Image upload"
-          name="image"
-          placeholder=""
-          value={itemInfo.img_url}
-          // onChange={handleChange}
-        /> */}
         <Input
           type="url"
           name="image"
           label="Enter image url"
           placeholder="Image url"
           value={imgUrl}
-          onChange={handleChange}
         />
         <SubmitButton onClick={handleSubmit}>List Item</SubmitButton>
       </Form>
