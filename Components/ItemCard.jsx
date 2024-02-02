@@ -5,7 +5,7 @@ export default function ItemCard({ item }) {
         <img src={item.img_url} alt="" />
         <header id="item-name">{item.item_name}</header>
         <p className="item-description">{item.description}</p>
-        <p className="item-price">£{item.price}</p>
+        <p className="item-price">£{item.price / 100}</p>
         <button>Order Now</button>
       </div>
     </div>
