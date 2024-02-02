@@ -10,6 +10,7 @@ import Form, {
   ImageUpload,
 } from "react-form-component";
 import postItem from "../utils/postItem";
+import ItemCard from "./ItemCard";
 
 export default function SellItem() {
   const navigate = useNavigate();
@@ -22,30 +23,49 @@ export default function SellItem() {
   });
   const [isError, setIsError] = useState(false);
   const [errorInfo, setErrorInfo] = useState({});
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState(0);
+  const [imgUrl, setImgUrl] = useState("");
+  const [category, setCategory] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
 
   function backToBuyClick() {
     navigate("/");
   }
 
-  function handleSubmit(event) {
-    console.dir(event, "<<<< EVENT");
+  function handleChange(event) {
     setItemInfo({
-      ...itemInfo,
       item_name: event.title,
-      description: event.description ? event.description : "",
+      description: event.description,
       price: event.price,
       img_url: event.image,
-      category_name: event.category ? event.category : "",
+      category_name: event.category,
     });
-    console.log(itemInfo, "<<< ITEM INFO");
+  }
+
+  function handleSubmit() {
     postItem(itemInfo)
-      .then((data) => {})
+      .then((data) => {
+        setIsSuccess(true);
+        console.log(data);
+        setListedItem({ data });
+      })
       .catch((err) => {
         setIsError(true);
         setErrorInfo({ ...err });
       });
   }
 
+  if (isSuccess) {
+    return (
+      <div className="success-page">
+        <h1>Successfully listed!</h1>
+        <ItemCard item={itemInfo} skipButton={true} />
+        <button onClick={backToBuyClick}>Back to Homepage</button>
+      </div>
+    );
+  }
   if (isError) {
     return (
       <div className="error-page">
@@ -66,6 +86,7 @@ export default function SellItem() {
       }}
     >
       <Form
+        onChange={handleChange}
         className="form-section"
         fields={["title", "description", "category", "price", "image"]}
         mandatory={["title", "price", "image"]}
@@ -75,15 +96,15 @@ export default function SellItem() {
           name="title"
           label="Item title"
           placeholder="Item Name"
-          // value={itemInfo.title}
-          // onChange={handleChange}
+          value={title}
+          onChange={handleChange}
         />
         <TextArea
           name="description"
           label="Item Description"
           placeholder="Describe your item"
-          // value={itemInfo.description}
-          // onChange={handleChange}
+          value={description}
+          onChange={handleChange}
         />
         <Select
           name="category"
@@ -93,8 +114,8 @@ export default function SellItem() {
             { label: "Household", value: "Household" },
             { label: "Clothing", value: "Clothing" },
           ]}
-          // value={itemInfo.category}
-          // onChange={handleChange}
+          value={category}
+          onChange={handleChange}
         />
         <Input
           name="price"
@@ -102,6 +123,8 @@ export default function SellItem() {
           label="Price"
           placeholder="9999"
           suffix="pence (GBP)"
+          value={price}
+          onChange={handleChange}
         />
         {/* <ImageUpload
           label="Image upload"
@@ -111,10 +134,12 @@ export default function SellItem() {
           // onChange={handleChange}
         /> */}
         <Input
+          type="url"
           name="image"
-          label="Or enter image url"
+          label="Enter image url"
           placeholder="Image url"
-          // value={itemInfo.img_url}
+          value={imgUrl}
+          onChange={handleChange}
         />
         <SubmitButton onClick={handleSubmit}>List Item</SubmitButton>
       </Form>
