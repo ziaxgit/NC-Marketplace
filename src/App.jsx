@@ -4,6 +4,7 @@ import Categories from "../Components/Categories";
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import SellItem from "../Components/SellItem";
+import LogInPage from "../Components/LogInPage";
 
 export default function App() {
   const [category, setCategory] = useState("");
@@ -22,6 +23,7 @@ export default function App() {
           }
         />
         <Route path="/sell" element={<SellItem />} />
+        <Route path="/login" element={<LogInPage />} />
       </Routes>
     </>
   );

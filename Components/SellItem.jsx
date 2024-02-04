@@ -126,13 +126,7 @@ export default function SellItem() {
           value={price}
           onChange={handleChange}
         />
-        {/* <ImageUpload
-          label="Image upload"
-          name="image"
-          placeholder=""
-          value={itemInfo.img_url}
-          // onChange={handleChange}
-        /> */}
+        {/* <ImageUpload label="Image upload" placeholder="" /> */}
         <Input
           type="url"
           name="image"
