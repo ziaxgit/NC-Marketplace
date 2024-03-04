@@ -1,8 +1,3 @@
-# React + Vite
+# NC Marketplace
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+An interactive website facilitating seamless transactions between buyers and sellers. Utilizing React.js and Material UI for an engaging user interface, the platform empowers buyers to browse available items, place orders, and sellers to list their unused items for sale.
